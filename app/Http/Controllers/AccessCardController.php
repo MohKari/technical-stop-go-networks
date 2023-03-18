@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccessCard;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class AccessCardController extends Controller
 {
-    public function search(Request $request)
+    /**
+     * Returns an employees name and departments, related to supplied access card number.
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function search(Request $request): JsonResponse
     {
         // Ideally this would be validated, and an appropriate message returned.
         $cardNumber = $request->get('cn');

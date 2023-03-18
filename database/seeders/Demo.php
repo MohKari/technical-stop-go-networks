@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\AccessCard;
 use App\Models\Employee;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class Demo extends Seeder
 {
@@ -23,6 +21,9 @@ class Demo extends Seeder
         $this->addDepartmentsToEmployees();
     }
 
+    /**
+     * Add Employees.
+     */
     private function addEmployees(): void
     {
         // make sure first employee is Julius with known RFID
@@ -43,6 +44,9 @@ class Demo extends Seeder
             ->create();
     }
 
+    /**
+     * Add Departments.
+     */
     private function addDepartments(): void
     {
         DB::table('departments')->insert([
@@ -54,6 +58,9 @@ class Demo extends Seeder
         ]);
     }
 
+    /**
+     * Add Buildings.
+     */
     private function addBuildings(): void
     {
         DB::table('buildings')->insert([
@@ -85,6 +92,9 @@ class Demo extends Seeder
         ]);
     }
 
+    /**
+     * Add Departments to Buildings.
+     */
     private function addDepartmentsToBuildings(): void
     {
         DB::table('building_department')->insert([
@@ -123,6 +133,9 @@ class Demo extends Seeder
        ]);
     }
 
+    /**
+     * Add Departments To Employees.
+     */
     private function addDepartmentsToEmployees(): void
     {
         DB::table('department_employee')->insert([
