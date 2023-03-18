@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('access_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('rfid',32)->unique();
+            $table->string('card_number',32)->unique();
             $table->timestamps();
             $table->softDeletes();
         });

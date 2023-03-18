@@ -18,7 +18,7 @@ class AccessCardFactory extends Factory
     public function definition(): array
     {
         return [
-            'rfid' => Str::random(32),
+            'card_number' => Str::random(32),
         ];
     }
 }
