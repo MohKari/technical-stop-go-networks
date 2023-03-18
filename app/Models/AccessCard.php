@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AccessCard extends Model
 {
@@ -13,8 +13,8 @@ class AccessCard extends Model
     /**
      * Get employee associated with access card
      */
-    public function employee(): HasOne
+    public function employee(): BelongsTo
     {
-        return $this->hasOne(Employee::class);
+        return $this->BelongsTo(Employee::class);
     }
 }

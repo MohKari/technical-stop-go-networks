@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('access_cards', function (Blueprint $table) {
             $table->id();
             $table->string('rfid',32)->unique();
-            $table->integer('employee_id');
             $table->timestamps();
             $table->softDeletes();
         });
