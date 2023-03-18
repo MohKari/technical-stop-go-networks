@@ -7,13 +7,26 @@ use Illuminate\Http\Request;
 
 class AccessCardController extends Controller
 {
-    public function search()
+    public function search(Request $request)
     {
-        $data = [
-            'full_name' => '',
-            'department' => [],
-        ];
+        // Ideally this would be validated, and an appropriate message returned.
+        $cardNumber = $request->get('cn');
+        $accessCard = AccessCard::where('card_number', $cardNumber)->first();
 
-        return response()->json($data);
+        // return "empty" if the card number provided is invalid
+        if ($accessCard === null) {
+            return response()->json([
+                'full_name' => '',
+                'department' => [],
+            ]);
+        }
+
+        $employee = $accessCard->employee;
+        $departments = $employee->departments->pluck('name')->toArray();
+
+        return response()->json([
+            'full_name' => $employee->full_name,
+            'department' => $departments,
+        ]);
     }
 }
