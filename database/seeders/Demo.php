@@ -28,7 +28,7 @@ class Demo extends Seeder
         // make sure first employee is Julius with known RFID
         DB::table('access_cards')->insert([
             'id' => 1,
-            'rfid' => '142594708f3a5a3ac2980914a0fc954f',
+            'card_number' => '142594708f3a5a3ac2980914a0fc954f',
         ]);
         DB::table('employees')->insert([
            'id' => 1,
