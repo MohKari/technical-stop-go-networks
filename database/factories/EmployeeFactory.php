@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\AccessCard;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
+            'access_card_id' => AccessCard::factory()->create()->id,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
         ];
